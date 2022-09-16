@@ -1,0 +1,112 @@
+.ImageGallery {
+  display: grid;
+  max-width: calc(100vw - 48px);
+  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+  grid-gap: 16px;
+  margin-top: 0;
+  margin-bottom: 0;
+  padding: 0;
+  list-style: none;
+  margin-left: auto;
+  margin-right: auto;
+}
+.ImageGalleryItem {
+  position: relative;
+  border-radius: 2px;
+  box-shadow: 0px 1px 3px 0px rgba(0, 0, 0, 0.2),
+    0px 1px 1px 0px rgba(0, 0, 0, 0.14), 0px 2px 1px -1px rgba(0, 0, 0, 0.12);
+  color: transparent;
+}
+.ImageGalleryItem::before {
+  content: 'kzkzkz';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0.4;
+  animation: loading infinite 1s linear alternate;
+  z-index: -1;
+}
+
+@keyframes loading {
+  0% {
+    background-color: #ebe8e8;
+  }
+  10% {
+    background-image: linear-gradient(
+      to right,
+      #ffffff 0%,
+      #ffffff 10%,
+      #ebebeb 10%,
+      #ebebeb 100%
+    );
+  }
+  20% {
+    background-image: linear-gradient(
+      to right,
+      #ffffff 20%,
+      #ebebeb 20%,
+      #ebebeb 100%
+    );
+  }
+  30% {
+    background-image: linear-gradient(
+      to right,
+      #ffffff 30%,
+      #ebebeb 30%,
+      #ebebeb 100%
+    );
+  }
+  40% {
+    background-image: linear-gradient(
+      to right,
+      #ffffff 40%,
+      #ebebeb 40%,
+      #ebebeb 100%
+    );
+  }
+  50% {
+    background-image: linear-gradient(
+      to right,
+      #ffffff 50%,
+      #ebebeb 50%,
+      #ebebeb 100%
+    );
+  }
+  60% {
+    background-image: linear-gradient(
+      to right,
+      #ffffff 60%,
+      #ebebeb 60%,
+      #ebebeb 100%
+    );
+  }
+  70% {
+    background-image: linear-gradient(
+      to right,
+      #ffffff 70%,
+      #ebebeb 70%,
+      #ebebeb 100%
+    );
+  }
+  80% {
+    background-image: linear-gradient(
+      to right,
+      #ffffff 80%,
+      #ebebeb 80%,
+      #ebebeb 100%
+    );
+  }
+  90% {
+    background-image: linear-gradient(
+      to right,
+      #ffffff 90%,
+      #ebebeb 90%,
+      #ebebeb 100%
+    );
+  }
+  100% {
+    background-color: #ffffff;
+  }
+}
