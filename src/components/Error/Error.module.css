@@ -1,0 +1,8 @@
+.Error {
+  background-image: url('../../images/error.jpg');
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  display: block;
+  min-height: 85vh;
+}

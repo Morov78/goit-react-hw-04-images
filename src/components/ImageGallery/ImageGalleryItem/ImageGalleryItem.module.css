@@ -12,4 +12,5 @@
 }
 .ImageGalleryItem-large-image {
   height: 95vmin;
+  object-fit: cover;
 }
