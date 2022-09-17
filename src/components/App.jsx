@@ -90,7 +90,7 @@ export default function App() {
     }
 
     const windowHeight = window.innerHeight;
-    window.scrollBy(0, 0.815 * windowHeight);
+    window.scrollBy(0, 0.81 * windowHeight);
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [pictures]);
 
