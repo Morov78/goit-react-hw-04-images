@@ -81,6 +81,7 @@ export default function App() {
       .catch(error => {
         setStatus(Status.REJECTED);
       });
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [page, query]);
 
   useLayoutEffect(() => {
@@ -90,6 +91,7 @@ export default function App() {
 
     const windowHeight = window.innerHeight;
     window.scrollBy(0, 0.815 * windowHeight);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [pictures]);
 
   return (
