@@ -97,8 +97,7 @@ export default function App() {
   return (
     <div className={css.App}>
       <SearchBar onFormSubmit={handleFormSubmit} />
-      {(status === Status.PENDING || status === Status.RESOLVED) &&
-        pictures.length !== 0 && <ImageGallery pictures={pictures} />}
+      {pictures.length !== 0 && <ImageGallery pictures={pictures} />}
       {loadMore && <Button onClick={clickLoadMore}>LoadMore</Button>}
       {status === Status.PENDING && <Loader />}
       {status === Status.REJECTED && <Error />}
