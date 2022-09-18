@@ -1,4 +1,4 @@
-import { useEffect, useState, useLayoutEffect } from 'react';
+import { useEffect, useState, useLayoutEffect, useRef } from 'react';
 import SearchBar from './SearchBar/Searchbar';
 import css from './App.module.css';
 import ImageGallery from './ImageGallery/ImageGallery';
@@ -22,6 +22,8 @@ export default function App() {
   const [status, setStatus] = useState(Status.IDLE);
   const [loadMore, setLoadMore] = useState(false);
 
+  const fetch = useRef(true);
+
   const handleFormSubmit = searchQuery => {
     if (query === searchQuery) {
       Notify.warning('You already have the result with this query');
@@ -34,14 +36,16 @@ export default function App() {
     setPictures([]);
     setLoadMore(false);
     setStatus(Status.IDLE);
+    fetch.current = true;
   };
 
   const clickLoadMore = () => {
     setPage(prevPage => prevPage + 1);
+    fetch.current = true;
   };
 
   useEffect(() => {
-    if (!query) {
+    if (!query || !fetch.current) {
       return;
     }
 
@@ -77,21 +81,20 @@ export default function App() {
 
         setStatus(Status.RESOLVED);
         setPictures(newPictures);
+        fetch.current = false;
       })
       .catch(error => {
         setStatus(Status.REJECTED);
       });
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [page, query]);
+  }, [page, query, pictures]);
 
   useLayoutEffect(() => {
-    if (page <= 1) {
+    if (pictures.length <= 12) {
       return;
     }
 
     const windowHeight = window.innerHeight;
     window.scrollBy(0, 0.81 * windowHeight);
-    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [pictures]);
 
   return (
